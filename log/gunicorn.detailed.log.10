@@ -1,0 +1,93 @@
+[2026-09-03 16:14:33,304] ERROR log_exception() L875  Exception on /users [GET] - call_trace=C:\Python310\lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python310\lib\site-packages\flask\app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1231, in make_response
+    rv = self.json.response(rv)
+  File "C:\Python310\lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "C:\Python310\lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python310\lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type User is not JSON serializable
+[2026-09-03 16:14:33,308] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:33] "[35m[1mGET /users HTTP/1.1[0m" 500 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:45,263] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.60.63.17:5000 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:45,266] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:45,270] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:47,393] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:47,403] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:55,237] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:55] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:55,551] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:55] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:55,600] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:55] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:55,606] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:55] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:56,193] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:56] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:56,204] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:56] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:14:58,836] ERROR log_exception() L875  Exception on /users [GET] - call_trace=C:\Python310\lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Python310\lib\site-packages\flask\app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Python310\lib\site-packages\flask\app.py", line 1231, in make_response
+    rv = self.json.response(rv)
+  File "C:\Python310\lib\site-packages\flask\json\provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "C:\Python310\lib\site-packages\flask\json\provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "C:\Python310\lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "C:\Python310\lib\json\encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "C:\Python310\lib\json\encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Python310\lib\site-packages\flask\json\provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type User is not JSON serializable
+[2026-09-03 16:14:58,838] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:14:58] "[35m[1mGET /users HTTP/1.1[0m" 500 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:22:04,548] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\schemas\\user.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:22:04,747] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:22:07,013] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:22:07,027] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:23:56,538] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\schemas\\user.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:23:56,716] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:23:59,162] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:23:59,172] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:15,440] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\schemas\\__init__.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:15,614] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:17,940] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:17,959] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:25,075] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:25,409] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:27,958] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:27,978] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:30,078] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.60.63.17:5000 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:30,081] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:47,658] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.60.63.17:5000 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:47,661] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:47,665] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:49,739] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:49,764] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:56,752] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:24:56] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:24:57,554] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:24:57] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  

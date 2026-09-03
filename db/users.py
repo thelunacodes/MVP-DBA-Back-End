@@ -10,6 +10,7 @@ class User (Base):
     name = Column("name", String(64), nullable=False)
     surname = Column("surname", String(64), nullable=False)
     email = Column("email", String(256), nullable=False)
+    normalized_email = Column("normalized_email", String(256), nullable=False)
     password = Column("password", String(256), nullable=False) 
     created_at = Column("created_at", DateTime, nullable=False, server_default=func.now())
     modified_at = Column("modified_at", DateTime, nullable=True, onupdate=func.now()) 
@@ -32,4 +33,5 @@ class User (Base):
         self.name = name
         self.surname = surname
         self.email = email
+        self.normalized_email = email.strip().upper()
         self.password = password

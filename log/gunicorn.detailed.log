@@ -1,0 +1,55 @@
+[2026-09-03 16:47:28,778] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:32,493] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:32,503] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:36,058] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:47:36] "[35m[1mDELETE /user?id=3 HTTP/1.1[0m" 500 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:42,678] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:42,884] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:45,099] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:45,109] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:47:48,005] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:47:48] "[35m[1mDELETE /user?id=3 HTTP/1.1[0m" 500 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:35,071] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:35,272] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:37,692] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:37,705] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:50,902] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:51,081] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:53,777] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:53,800] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:48:55,009] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:48:55] "[31m[1mDELETE /user?id=3 HTTP/1.1[0m" 422 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:27,041] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:27] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:27,509] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:27] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:27,632] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:27] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:27,646] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:27] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:28,092] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:28] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:28,152] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:28] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:49:36,234] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:49:36] "[35m[1mDELETE /user HTTP/1.1[0m" 500 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:50:00,785] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:50:00,955] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:50:03,102] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:50:03,118] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:28,141] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:28,337] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:30,963] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:30,998] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:34,936] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:34] "[31m[1mDELETE /user HTTP/1.1[0m" 422 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:44,879] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:44] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:45,326] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:45] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:45,465] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:45] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:45,481] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:45] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:45,970] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:45] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:45,975] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:45] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:51:50,367] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:51:50] "DELETE /user?id=3 HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:52:01,142] WARNING delete_user() L169  Couldn't find an user with id 3 - call_trace=C:\Users\gabriel.luna\Desktop\MVP-DBA-Backend\app.py L169 
+[2026-09-03 16:52:01,143] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:52:01] "[33mDELETE /user?id=3 HTTP/1.1[0m" 404 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:08,600] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:08,817] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:10,985] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:10,985] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:53,663] INFO _log() L97    * Detected change in 'C:\\Users\\gabriel.luna\\Desktop\\MVP-DBA-Backend\\app.py', reloading - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:53,903] INFO _log() L97    * Restarting with stat - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:56,786] WARNING _log() L97    * Debugger is active! - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:56,795] INFO _log() L97    * Debugger PIN: 137-544-315 - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:57,647] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:54:57] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:57,801] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:54:57] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:57,921] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:54:57] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  
+[2026-09-03 16:54:58,012] INFO _log() L97   127.0.0.1 - - [03/Sep/2026 16:54:58] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Python310\lib\site-packages\werkzeug\_internal.py L97  

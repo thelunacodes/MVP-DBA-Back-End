@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 from typing import Optional, List
 
 from db.book_reviews import BookReview
@@ -45,14 +45,20 @@ class ReviewSearchSchema(BaseModel):
     user_id: Optional[int] = None
     book_key: Optional[str] = None
 
+    @model_validator(mode="after")
+    def validate_filter(self):
+        if (self.user_id is None and self.book_key is None):
+            raise ValueError("All search parameters cannot be null!")
+        return self 
+
 class ReviewListingSchema(BaseModel):
     """ Defines how the book review 
         search result should be structured.
     """
     
-    reviews:List[BookReview]
+    reviews:List[BookReviewSchema]
 
-def show_reviews(reviews: List[BookReview]):
+def show_reviews(reviews: List[BookReviewSchema]):
     """ Returns:
         dict: The representation of a book review, 
         following the structure defined in ReviewViewSchema.
@@ -83,7 +89,7 @@ class ReviewViewSchema(BaseModel):
     created_at:datetime
     modified_at:datetime 
 
-class ReviewDeletionSchema(BaseModel):
+class ReviewDeletionResultSchema(BaseModel):
     """ Defines the structure of the data returned 
         after a deletion request.
     """

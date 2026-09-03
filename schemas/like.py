@@ -12,7 +12,7 @@ class LikeSchema(BaseModel):
     reviewId:int
     likedAt:datetime
 
-class LikeDeletionShecma(BaseModel):
+class LikeDeletionSchema(BaseModel):
     """ Defines how the "like" deletion should be structured."""
 
     userId:int = 1
@@ -23,7 +23,7 @@ class LikeSearchSchema(BaseModel):
     userId:Optional[int] = None 
     reviewId:Optional[int] = None 
 
-class LikeSearchResultSchema(BaseModel):
+class LikeListingSchema(BaseModel):
     """ Defines how the "like" search results should be structured """
     likes: List[LikeSchema]
 
@@ -49,7 +49,7 @@ class LikeViewSchema(BaseModel):
     review_id: int
     liked_at: datetime
 
-class LikeDeletionSchema(BaseModel):
+class LikeDeletionResultSchema(BaseModel):
     """ 
         Defines the structure of the data returned
         after a deletion request.

@@ -3,7 +3,9 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 import os 
 
-from db.games import Game 
+from db.book_reviews import BookReview
+from db.users import User
+from db.likes import Like
 from db.base import Base
 
 PATH = 'database/'

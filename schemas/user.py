@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 from typing import Optional, List
 
 from db.users import User
@@ -11,9 +11,32 @@ class UserSchema(BaseModel):
     name:str
     surname:str
     email:str
+    normalized_email:str
     password:str
     created_at: datetime
     modified_at: Optional[datetime] = None
+
+class UserCreateSchema(BaseModel):
+    """ Defines how the user data must be structured
+    during the registration process"""
+    name: str
+    surname: str
+    email: str
+    password: str
+
+class UserUpdateSchema(BaseModel):
+    """ Defines how the user update should be structured """
+    id: int
+    name:str
+    surname:str
+    email:str
+    password:str
+
+class UserLoginSchema(BaseModel):
+    """ Defines how the user login should be structured"""
+
+    email:str
+    password: str
 
 class UserDeletionSchema(BaseModel):
     """ Defines how the user deletion should be structured."""
@@ -23,10 +46,16 @@ class UserDeletionSchema(BaseModel):
 class UserSearchSchema(BaseModel):
     """ Defines how the user search should be structured """
     id:Optional[int] = None
-    full_name:Optional[str] = None
-    email:Optional[str]
+    fullname:Optional[str] = None
+    email:Optional[str] = None
 
-class UserSearchResultSchema(BaseModel):
+    @model_validator(mode="after")
+    def validate_filter(self):
+        if (self.id is None and self.fullname is None and self.email is None):
+            raise ValueError("All search parameters cannot be null!")
+        return self
+
+class UserListingSchema(BaseModel):
     """ Defines how the user search results should be structured """
     users: List[UserSchema]
 
@@ -38,9 +67,11 @@ def show_users(users: List[User]):
     result = []
     for user in users:
         result.append({
+            "id": user.id,
             "name": user.name,
             "surname": user.surname,
             "email": user.email,
+            "normalized_email": user.normalized_email,
             "created_at": user.created_at,
             "modified_at": user.modified_at
         })
@@ -50,13 +81,15 @@ def show_users(users: List[User]):
 class UserViewSchema(BaseModel):
     """ Defines how the user data should be returned """
 
+    id: int
     name: str
     surname: str
     email: str
+    normalized_email: str
     created_at: datetime
     modified_at: Optional[datetime] = None
 
-class UserDeletionSchema(BaseModel):
+class UserDeletionResultSchema(BaseModel):
     """ 
         Defines the structure of the data returned
         after a deletion request.
@@ -70,9 +103,11 @@ def show_user(user:User):
     """
 
     return {
-       "name": user.name,
+        "id": user.id,
+        "name": user.name,
         "surname": user.surname,
         "email": user.email,
+        "normalized_email": user.normalized_email,
         "created_at": user.created_at,
         "modified_at": user.modified_at
     }
