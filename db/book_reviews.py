@@ -1,6 +1,6 @@
 from typing import Optional
 
-from sqlalchemy import Column, Float, ForeignKey, String, DateTime, Integer
+from sqlalchemy import Column, Float, ForeignKey, String, DateTime, Integer, UniqueConstraint
 from sqlalchemy.orm import validates
 from sqlalchemy.sql import func
 
@@ -9,8 +9,9 @@ from db.base import Base
 class BookReview (Base):
     __tablename__ = "book_review"
 
-    user_id = Column("user_id", Integer, ForeignKey("user.pk_id"), primary_key=True)
-    book_key = Column("book_key", String(12), primary_key=True)
+    pk_id = Column("pk_id", Integer, primary_key=True)
+    user_id = Column("user_id", Integer, ForeignKey("user.pk_id"), nullable=False)
+    book_key = Column("book_key", String(15), nullable=False)
     review_score = Column("review_score", Float, nullable=False)
     review_comment = Column("review_comment", String(420), nullable=True)
     created_at = Column("created_at", DateTime, nullable=False, server_default=func.now())
@@ -33,10 +34,14 @@ class BookReview (Base):
         self.user_id = user_id
         self.book_key = book_key
         self.review_score = review_score
-        self.review_comment = review_comment
+        self.review_comment = review_comment.strip() if review_comment is not None else None
+
+    # __table_args__ = (
+    #     UniqueConstraint("user_id", "book_key", name="uq_user_book_review"),
+    # )
 
     @validates("review_score")
-    def validate_review_score(self, value):
+    def validate_review_score(self, key, value):
         if not (0.0 <= value <= 5.0):
             raise ValueError(f"Review score must be a value between 0.0 and 5.0. Received: {value}")
 

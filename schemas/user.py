@@ -19,8 +19,7 @@ class UserSchema(BaseModel):
 class UserCreateSchema(BaseModel):
     """ Defines how the user data must be structured
     during the registration process"""
-    name: str
-    surname: str
+    fullname: str
     email: str
     password: str
 
@@ -33,7 +32,7 @@ class UserUpdateSchema(BaseModel):
     password:str
 
 class UserLoginSchema(BaseModel):
-    """ Defines how the user login should be structured"""
+    """ Defines how the user login should be structured."""
 
     email:str
     password: str
@@ -44,7 +43,7 @@ class UserDeletionSchema(BaseModel):
     id: int
 
 class UserSearchSchema(BaseModel):
-    """ Defines how the user search should be structured """
+    """ Defines how the user search should be structured."""
     id:Optional[int] = None
     fullname:Optional[str] = None
     email:Optional[str] = None
@@ -52,17 +51,17 @@ class UserSearchSchema(BaseModel):
     @model_validator(mode="after")
     def validate_filter(self):
         if (self.id is None and self.fullname is None and self.email is None):
-            raise ValueError("All search parameters cannot be null!")
+            raise ValueError("You must inform, at least, one search parameter!")
         return self
 
 class UserListingSchema(BaseModel):
-    """ Defines how the user search results should be structured """
+    """ Defines how the user search results should be structured."""
     users: List[UserSchema]
 
 def show_users(users: List[User]):
     """ Returns:
         dict: The representation of a user, following
-        the structured in UserViewSchema
+        the structured in UserViewSchema.
     """
     result = []
     for user in users:
@@ -79,7 +78,7 @@ def show_users(users: List[User]):
     return {"users": result}
 
 class UserViewSchema(BaseModel):
-    """ Defines how the user data should be returned """
+    """ Defines how the user data should be returned."""
 
     id: int
     name: str
@@ -99,7 +98,7 @@ class UserDeletionResultSchema(BaseModel):
 def show_user(user:User):
     """Retns: 
             dict: a representation of a user, following
-            the structure defined in UserViewSchema
+            the structure defined in UserViewSchema.
     """
 
     return {

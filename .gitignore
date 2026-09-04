@@ -1,0 +1,13 @@
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Banco de dados local (SQLite)
+database/
+*.db
+*.sqlite
+*.sqlite3
+
+# Pasta de logs
+log/
