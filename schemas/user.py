@@ -13,6 +13,7 @@ class UserSchema(BaseModel):
     email:str
     normalized_email:str
     password:str
+    date_of_birth: datetime
     created_at: datetime
     modified_at: Optional[datetime] = None
 
@@ -22,6 +23,7 @@ class UserCreateSchema(BaseModel):
     fullname: str
     email: str
     password: str
+    date_of_birth: datetime
 
 class UserUpdateSchema(BaseModel):
     """ Defines how the user update should be structured """
@@ -37,8 +39,8 @@ class UserLoginSchema(BaseModel):
     email:str
     password: str
 
-class UserDeletionSchema(BaseModel):
-    """ Defines how the user deletion should be structured."""
+class UserIdSearchSchema(BaseModel):
+    """ Defines how the user ID search should be structured."""
 
     id: int
 
@@ -71,6 +73,7 @@ def show_users(users: List[User]):
             "surname": user.surname,
             "email": user.email,
             "normalized_email": user.normalized_email,
+            "date_of_birth": user.date_of_birth,
             "created_at": user.created_at,
             "modified_at": user.modified_at
         })
@@ -84,6 +87,7 @@ class UserViewSchema(BaseModel):
     name: str
     surname: str
     email: str
+    date_of_birth: datetime
     normalized_email: str
     created_at: datetime
     modified_at: Optional[datetime] = None
@@ -96,7 +100,7 @@ class UserDeletionResultSchema(BaseModel):
     message: str
 
 def show_user(user:User):
-    """Retns: 
+    """Returns: 
             dict: a representation of a user, following
             the structure defined in UserViewSchema.
     """
@@ -107,6 +111,7 @@ def show_user(user:User):
         "surname": user.surname,
         "email": user.email,
         "normalized_email": user.normalized_email,
+        "date_of_birth": user.date_of_birth,
         "created_at": user.created_at,
         "modified_at": user.modified_at
     }

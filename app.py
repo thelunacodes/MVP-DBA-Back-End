@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask_cors import CORS
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError, VerifyMismatchError
@@ -61,11 +63,18 @@ def add_user(body:UserCreateSchema):
     logger.debug(f"Adding a new user: ${new_user.name} ${new_user.surname}")
 
     with Session() as session:
+        # Email validation
         userByEmail = session.query(User).filter(User.normalized_email == normalize(body.email)).first()
         
         if (userByEmail is not None):
             logger.warning(f"Email address '{new_user.email}' already in use!")
             return  {"message": "Email address already in use!"}, 409
+
+        #Date of birth validation
+        if (body.date_of_birth > datetime.now()):
+            logger.warning("Invalid date of birth (future date)!")
+            return  {"message": "Invalid date of birth (future date)!"}, 409
+
 
         try:
             session.add(new_user)
@@ -98,6 +107,28 @@ def get_users():
         
         logger.debug(f"{len(users)} users found!")
         return show_users(users), 200
+
+
+@app.ger('/userbyid', tags=[user_tag],
+         responses={"200": UserViewSchema, "404": ErrorSchema})
+def search_user_by_id(query: UserIdSearchSchema):
+    """Retrieves user by its id.
+    
+    Returns:
+        dict: User search result.
+    """ 
+
+    logger.debug(f"Searching for user with ID {query.id}")
+
+    with Session() as session:
+        user = session.query(User).filter(User.id == query.id).first()
+
+        if not user:
+            logger.warning(f"No user found with ID {query.id}")
+            return {"message":f"No user found with ID {query.id}"}, 404
+        
+        logger.debug(f"Found user with ID {query.id}: {user.full_name}")
+        return show_user(user), 200
 
 
 @app.get('/user', tags=[user_tag],
@@ -164,7 +195,7 @@ def update_user(body: UserUpdateSchema):
 
 @app.delete('/user', tags=[user_tag],
             responses={"200":UserDeletionResultSchema, "404":ErrorSchema})
-def delete_user(query:UserDeletionSchema):
+def delete_user(query:UserIdSearchSchema):
     """ Removes an user from database."""
 
     user_id = query.id
