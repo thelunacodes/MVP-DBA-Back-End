@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from sqlalchemy import Column, String, DateTime, Integer
 from sqlalchemy.sql import func
 from sqlalchemy.ext.hybrid import hybrid_property
@@ -15,7 +13,6 @@ class User (Base):
     email = Column("email", String(256), nullable=False)
     normalized_email = Column("normalized_email", String(256), nullable=False, unique=True)
     password = Column("password", String(256), nullable=False) 
-    date_of_birth = Column("date_of_birth", DateTime, nullable=False)
     created_at = Column("created_at", DateTime, nullable=False, server_default=func.now())
     modified_at = Column("modified_at", DateTime, nullable=True, onupdate=func.now()) 
 
@@ -24,8 +21,7 @@ class User (Base):
                  name:str, 
                  surname:str,
                  email:str, 
-                 password:str,
-                 date_of_birth:datetime):
+                 password:str):
         """Adds a new user to the database
 
         Args:
@@ -33,7 +29,6 @@ class User (Base):
             surname (str): User's surname
             email (str): User's email address
             password (str): User's (hashed) password
-            date_of_birth (datetime): User's date of birth
         """
 
         self.name = name
@@ -41,7 +36,6 @@ class User (Base):
         self.email = email.strip()
         self.normalized_email = email.strip().upper()
         self.password = password
-        self.date_of_birth = date_of_birth
 
     @hybrid_property
     def full_name(self):

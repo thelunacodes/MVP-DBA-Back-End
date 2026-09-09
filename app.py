@@ -70,12 +70,6 @@ def add_user(body:UserCreateSchema):
             logger.warning(f"Email address '{new_user.email}' already in use!")
             return  {"message": "Email address already in use!"}, 409
 
-        #Date of birth validation
-        if (body.date_of_birth > datetime.now()):
-            logger.warning("Invalid date of birth (future date)!")
-            return  {"message": "Invalid date of birth (future date)!"}, 409
-
-
         try:
             session.add(new_user)
             session.commit()
