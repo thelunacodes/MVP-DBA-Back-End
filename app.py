@@ -103,7 +103,7 @@ def get_users():
         return show_users(users), 200
 
 
-@app.ger('/userbyid', tags=[user_tag],
+@app.get('/userbyid', tags=[user_tag],
          responses={"200": UserViewSchema, "404": ErrorSchema})
 def search_user_by_id(query: UserIdSearchSchema):
     """Retrieves user by its id.
