@@ -228,14 +228,14 @@ def login(body: UserLoginSchema):
             ph.verify(user.password, user_password)
 
         except VerifyMismatchError:
-            logger.warning(f"Failed login attempt for email: '{user_email}'")
+            logger.warning(f"Failed login attempt for email: '{body.email}'")
             return {"message": "Invalid email/password!"}, 401
         except VerificationError as v_err:
-            logger.warning(f"Failed to verify password for email '{user_email}': {v_err}")
+            logger.warning(f"Failed to verify password for email '{body.email}': {v_err}")
             return {"message": "An error occurred while processing your request"}, 500
 
         logger.debug(f"Successful login for user with id: {user.id}")
-        return {"message": "Login successful!"}, 200
+        return {"message": "Login successful!", "userId":user.id}, 200
 
 #endregion
     
