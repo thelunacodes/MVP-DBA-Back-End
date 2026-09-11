@@ -36,10 +36,6 @@ class BookReview (Base):
         self.review_score = review_score
         self.review_comment = review_comment.strip() if review_comment is not None else None
 
-    # __table_args__ = (
-    #     UniqueConstraint("user_id", "book_key", name="uq_user_book_review"),
-    # )
-
     @validates("review_score")
     def validate_review_score(self, key, value):
         if not (0.0 <= value <= 5.0):
