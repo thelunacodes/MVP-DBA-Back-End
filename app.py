@@ -331,6 +331,28 @@ def search_reviews(query: ReviewSearchSchema):
         logger.debug(f"{len(reviews)} reviews found!")
         return show_reviews(reviews), 200
 
+@app.get('/review/bookKey', tags=[book_review_tag],
+    responses={"200": ReviewListingSchema, "404": ErrorSchema})
+def search_reviews_byBook(query: ReviewKeySearchSchema):
+    """Lists book reviews by book key.
+    
+    Returns:
+        dict: Book review search results.
+    """ 
+
+    logger.debug(f"Searching for book review records from book with key: {query.book_key}")
+
+    with Session() as session:
+        bookKey = query.book_key.replace("|","/")
+
+        reviews = session.query(BookReview).filter(BookReview.book_key == bookKey).all()
+        if not reviews:
+            logger.warning(f"No book reviews found with book key: {query.book_key}")
+            return {"message":f"No book reviews found with book key: {query.book_key}"}, 404
+        
+        logger.debug(f"{len(reviews)} reviews found!")
+        return show_reviews(reviews), 200
+
 @app.put('/review', tags=[book_review_tag],
         responses={"200": ReviewViewSchema, "404": ErrorSchema})
 def update_review(body: ReviewUpdateSchema):

@@ -71,6 +71,14 @@ class ReviewSearchSchema(BaseModel):
             raise ValueError("All search parameters cannot be null!")
         return self 
 
+class ReviewKeySearchSchema(BaseModel):
+    """
+        Defines how the book review search
+        (by book key) should be structured.
+    """
+
+    book_key: Optional[str] = None
+
 class ReviewListingSchema(BaseModel):
     """ Defines how the book review 
         search result should be structured.
