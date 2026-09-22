@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import Optional, List
 
 from db.likes import Like
+from utility_functions import datetime_to_utc_str
 
 class LikeSchema(BaseModel):
     """ Defines how the registered "like" should be represented """
@@ -44,7 +45,7 @@ def show_likes(likes: List[Like]):
         result.append({
             "user_id":like.user_id,
             "review_id":like.review_id,
-            "liked_at":like.liked_at
+            "liked_at":datetime_to_utc_str(like.liked_at)
         })
 
     return {"likes": result}
@@ -72,5 +73,5 @@ def show_like(like:Like):
     return {
         "user_id": like.user_id,
         "review_id":like.review_id,
-        "liked_at": like.liked_at
+        "liked_at": datetime_to_utc_str(like.liked_at)
     }

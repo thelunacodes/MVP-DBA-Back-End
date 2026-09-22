@@ -4,6 +4,7 @@ from pydantic import BaseModel, model_validator
 from typing import Optional, List
 
 from db.book_reviews import BookReview
+from utility_functions import datetime_to_utc_str
 
 class BookReviewSchema(BaseModel):
     """ 
@@ -100,10 +101,10 @@ def show_reviews(reviews: List[BookReviewSchema]):
             "book_key": review.book_key,
             "review_score": review.review_score,
             "review_comment": review.review_comment,
-            "created_at": review.created_at,
-            "modified_at": review.modified_at
+            "created_at": datetime_to_utc_str(review.created_at),
+            "modified_at": datetime_to_utc_str(review.modified_at)
         })
-        
+
     return {"review": result}
     
 class ReviewViewSchema(BaseModel):
@@ -138,6 +139,6 @@ def show_review(review:BookReview):
         "book_key": review.book_key,
         "review_score": review.review_score,
         "review_comment": review.review_comment,
-        "created_at": review.created_at,
-        "modified_at": review.modified_at
+        "created_at": datetime_to_utc_str(review.created_at),
+        "modified_at": datetime_to_utc_str(review.modified_at)
     }

@@ -1,15 +1,10 @@
-from datetime import datetime
-
 from flask_cors import CORS
 from argon2 import PasswordHasher
 from argon2.exceptions import VerificationError, VerifyMismatchError
 from flask_openapi3 import OpenAPI, Info, Tag
 from flask import redirect
-# from urllib.parse import unquote
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from sqlalchemy.exc import IntegrityError
-
-# from datetime import datetime
 
 from db import Session
 from db.book_reviews import BookReview
@@ -94,7 +89,7 @@ def get_users():
     logger.debug("Searching all Users...")
 
     with Session() as session:
-        users = session.query(User).all()
+        users = session.query(User).order_by(desc(User.created_at)).all()
         
         if not users:
             return {"users": []}, 404
@@ -149,7 +144,7 @@ def search_users(query: UserSearchSchema):
         if query.email is not None:
                 db_query = db_query.filter(User.normalized_email == normalize(query.email))
 
-        users = db_query.all()
+        users = db_query.order_by(desc(User.created_at)).all()
 
         if not users:
             logger.warning(f"No users found with filter: {str_params}")
@@ -279,7 +274,7 @@ def get_reviews():
     logger.debug("Searching all Book Reviews...")
 
     with Session() as session:
-        reviews = session.query(BookReview).all()
+        reviews = session.query(BookReview).order_by(desc(BookReview.created_at)).all()
 
         if not reviews:
             return { "reviews: ", []}, 404
@@ -322,7 +317,7 @@ def search_reviews(query: ReviewSearchSchema):
         if  query.comment is not None:
             db_query = db_query.filter(func.upper(BookReview.review_comment).contains(normalize(query.comment)))
 
-        reviews = db_query.all()
+        reviews = db_query.order_by(desc(BookReview.created_at)).all()
     
         if not reviews:
             logger.warning(f"No book reviews found with filter: {str_params}")
@@ -345,7 +340,7 @@ def search_reviews_byBook(query: ReviewKeySearchSchema):
     with Session() as session:
         bookKey = query.book_key.replace("|","/")
 
-        reviews = session.query(BookReview).filter(BookReview.book_key == bookKey).all()
+        reviews = session.query(BookReview).order_by(desc(BookReview.created_at)).filter(BookReview.book_key == bookKey).all()
         if not reviews:
             logger.warning(f"No book reviews found with book key: {query.book_key}")
             return {"message":f"No book reviews found with book key: {query.book_key}"}, 404
@@ -441,7 +436,7 @@ def get_likes():
     logger.debug("Searching all likes...")
 
     with Session() as session:
-        likes = session.query(Like).all()
+        likes = session.query(Like).order_by(desc(Like.liked_at)).all()
 
         if not likes:
             return { "likes: ", []}, 404
@@ -471,7 +466,7 @@ def search_likes(query: LikeSearchSchema):
         if query.review_id is not None:
             db_query = db_query.filter(Like.review_id == query.review_id)
 
-        likes = db_query.all()
+        likes = db_query.order_by(desc(Like.liked_at)).all()
     
         if not likes:
             logger.warning(f"No 'likes' found with filter: {str_params}")

@@ -4,6 +4,7 @@ from pydantic import BaseModel, model_validator
 from typing import Optional, List
 
 from db.users import User
+from utility_functions import datetime_to_utc_str
 
 class UserSchema(BaseModel):
     """ Defines how the registered user should be represented """
@@ -71,8 +72,8 @@ def show_users(users: List[User]):
             "surname": user.surname,
             "email": user.email,
             "normalized_email": user.normalized_email,
-            "created_at": user.created_at,
-            "modified_at": user.modified_at
+            "created_at": datetime_to_utc_str(user.created_at),
+            "modified_at": datetime_to_utc_str(user.modified_at)
         })
 
     return {"users": result}
@@ -107,6 +108,6 @@ def show_user(user:User):
         "surname": user.surname,
         "email": user.email,
         "normalized_email": user.normalized_email,
-        "created_at": user.created_at,
-        "modified_at": user.modified_at
+        "created_at": datetime_to_utc_str(user.created_at),
+        "modified_at": datetime_to_utc_str(user.modified_at)
     }
