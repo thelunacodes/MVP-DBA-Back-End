@@ -390,6 +390,13 @@ def delete_review(query:ReviewDeletionSchema):
             logger.warning(f"Couldn't find a book review with ID {review_id}")
             return {"message":  f"Couldn't find book review with ID {review_id}"}, 404
 
+        #Delete likes from review beforehand, to avoid conflict
+        reviewLikes = session.query(Like).filter(Like.review_id == review_id).all()
+        if (reviewLikes):
+            for like in reviewLikes:
+                session.delete(like)
+            session.flush()
+            
         session.delete(review)
         session.commit()
 
