@@ -19,7 +19,6 @@ Essa API possui as seguintes funcionalidades:
 
 #### 3. Instalação e execução 
 
-(TODO: INCLUIR INSTRUÇÕES PARA EXECUÇÃO DO DOCKER E TALS)
 
 **Passo 1 - Clone o repositório para sua máquina**
 
@@ -47,3 +46,26 @@ Você pode acessar a interface da API por meio do link:
 
 **Como o projeto é executado em um servidor de desenvolvimento local, ele só pode ser acessado pela sua máquina.**
 
+#### 4. Execução através do Docker (opcional)
+
+**Passo 1 - Siga os passos 1 à 3 do passo-a-passo anterior.**
+
+**Passo 2 - Ainda na pasta raiz do projeto, construa a imagem Docker usando o comando COMO ADMINISTRADOR:**
+
+**Linux**  
+
+    sudo docker build -t mvp-dba-back-end .
+
+**Windows (CMD/Powershell)**  
+
+    docker build -t mvp-dba-back-end .
+
+**Passo 3 - Após a criação do conteiner, execute-o com o seguinte comando (ainda como administrador):**
+
+**Linux** 
+
+    sudo docker run -p 5000:5000 mvp-dba-back-end
+
+**Windows (CMD/Powershell)**  
+
+    docker run -p 5000:5000 mvp-dba-back-end
