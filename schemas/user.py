@@ -30,7 +30,6 @@ class UserUpdateSchema(BaseModel):
     name:str
     surname:str
     email:str
-    password:str
 
 class UserLoginSchema(BaseModel):
     """ Defines how the user login should be structured."""
@@ -42,18 +41,6 @@ class UserIdSearchSchema(BaseModel):
     """ Defines how the user ID search should be structured."""
 
     id: int
-
-class UserSearchSchema(BaseModel):
-    """ Defines how the user search should be structured."""
-    id:Optional[int] = None
-    fullname:Optional[str] = None
-    email:Optional[str] = None
-
-    @model_validator(mode="after")
-    def validate_filter(self):
-        if (self.id is None and self.fullname is None and self.email is None):
-            raise ValueError("You must inform, at least, one search parameter!")
-        return self
 
 class UserListingSchema(BaseModel):
     """ Defines how the user search results should be structured."""

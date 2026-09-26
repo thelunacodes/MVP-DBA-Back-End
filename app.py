@@ -119,40 +119,6 @@ def search_user_by_id(query: UserIdSearchSchema):
         logger.debug(f"Found user with ID {query.id}: {user.full_name}")
         return show_user(user), 200
 
-
-@app.get('/user', tags=[user_tag],
-         responses={"200": UserViewSchema, "404": ErrorSchema})
-def search_users(query: UserSearchSchema):
-    """Lists users by id, name and/or email address.
-    
-    Returns:
-        dict: User search results.
-    """ 
-
-    str_params = build_str_params(query)
-    logger.debug(f"Searching for user records with parameters: {str_params}")
-
-    with Session() as session:
-        db_query = session.query(User)
-
-        if query.id is not None:
-            db_query = db_query.filter(User.id == query.id)
-
-        if  query.fullname is not None:
-            db_query = db_query.filter(normalize(query.fullname) in normalize(User.full_name))
-
-        if query.email is not None:
-                db_query = db_query.filter(User.normalized_email == normalize(query.email))
-
-        users = db_query.order_by(desc(User.created_at)).all()
-
-        if not users:
-            logger.warning(f"No users found with filter: {str_params}")
-            return {"message":f"No users found with filter: {str_params}"}, 404
-        
-        logger.debug(f"{len(users)} users found!")
-        return show_users(users), 200
-
 @app.put('/user', tags=[user_tag],
         responses={"200": UserViewSchema, "404": ErrorSchema})
 def update_user(body: UserUpdateSchema):
@@ -173,7 +139,6 @@ def update_user(body: UserUpdateSchema):
             user.surname = body.surname
             user.email = body.email 
             user.normalized_email = normalize(body.email)
-            user.password = ph.hash(body.password)
 
             session.commit()
             return show_user(user), 200
