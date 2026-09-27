@@ -371,7 +371,7 @@ def delete_review(query:ReviewDeletionSchema):
 #endregion
 
 #region 'likes region'
-@app.put('/like', tags=[like_tag])
+@app.post('/like', tags=[like_tag])
 def add_like(body: LikeCreationSchema):
     """ Registers a new 'like' to the database.
     
